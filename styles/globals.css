@@ -14,3 +14,150 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+/* messages container */
+
+/*
+.history{
+  padding: 10px;
+  margin: 0 5%;
+  width: 90%;
+
+  box-shadow: 2px 2px 10px -5px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  max-height: 300px;
+  overflow:scroll;
+}*/
+.messages-container{
+  display:flex;
+  justify-content: space-between;
+}
+.message, .my-message{
+  margin: 5px;
+  width:fit-content;
+  box-shadow: 2px 2px 6px -2px rgba(0,0,0,0.3);
+  border-radius: 20px;
+  padding: 10px;
+}
+.my-message{
+  background-color: #1b64d2;
+  color: white;
+}
+
+.room{
+  padding: 0px;
+  margin: 0 5%;
+  width: 90%;
+  box-shadow: 2px 2px 10px -5px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  max-height: 300px;
+  overflow:scroll;
+}
+/*
+.room{
+  flex-direction: column;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+*/
+.input-hold-right{
+  display: flex;
+  justify-content: right;
+}
+
+
+
+/* The message input bar to send messages into the chat */
+.input-container{
+  width:30%;
+  display: flex;
+  justify-content: right;
+  overflow: hidden;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0,0,0,0.1);
+}
+.send-input{
+  flex-grow: 2;
+  background-color:white;
+  border-style:none;
+  border-color:none;
+}
+.send-input:focus{
+  border-style: none;
+  border-color: none;
+  outline-style: none;;
+}
+.send-button{
+  background-color: #1b64d2;
+  color: white;
+  border-radius: 10px;
+  border-style:none;
+  padding: 5px 10px;
+
+}
+
+/* chat room input stuff */
+.create{
+  padding: 10px;
+  box-shadow: 2px 2px 10px -4px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  width:fit-content;
+}
+.new-room-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.create-input{
+  transition: 0.1s;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: rgba(0,0,0,0.1);
+}
+.create-input:focus{
+  border-color: rgba(0,0,0,0.3);
+  outline-style: none;
+}
+
+.create-button{
+  
+  background-color:#555555;
+  color: white;
+  border-radius: 10px;
+  border-style:none;
+  padding: 5px 10px;
+  transition: 0.3s;
+}
+.create-button:hover{
+  background-color: rgb(53, 214, 160);
+}
+
+.create-inputs-container{
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  margin-bottom: 10px;
+}
+/* rooms info container stuff */
+.rooms-container{
+  background-color: #fbfbfb;
+  width: fit-content;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.3);
+  margin: 10px;
+}
+.rooms-item{
+  padding: 10px;
+}
+.rooms-item > span{
+  margin: 0 10px;
+}
+h3{
+  margin: 5px 5px;
+}
