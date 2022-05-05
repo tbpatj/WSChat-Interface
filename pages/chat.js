@@ -15,15 +15,21 @@ const { DataContext } = import("../components/context/GlobalData");
 
 export default function MainComponent() {
   const { dispatch, rooms } = useDataContext();
-  useEffect(() => {
+
+  function loadRooms() {
     console.log("getting em some more");
     getRooms()(dispatch);
-  }, []);
+  }
   return (
     <div>
       <HomeComponent />
       <div className="rooms-container">
-        <h3>Rooms</h3>
+        <h3>
+          Rooms{" "}
+          <span>
+            <button onClick={() => loadRooms()}>reload</button>
+          </span>
+        </h3>
         {rooms.map((item, index) => {
           return (
             <div className="rooms-item" key={index + "12"}>
