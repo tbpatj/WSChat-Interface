@@ -46,17 +46,26 @@ export default function ChatRoom() {
         <div className="room">
           <Messages />
           <div className="input-hold-right">
-            <div className="input-container">
-              <input
-                className="send-input"
-                value={msgInput}
-                onChange={(e) => setMsgInput(e.target.value)}
-                type="text"
-              />
-              <button className="send-button" onClick={sendMessage}>
-                send
-              </button>
-            </div>
+            <form onSubmit={(e) => e.preventDefault()}>
+              <div className="input-container">
+                <input
+                  className="send-input"
+                  value={msgInput}
+                  onChange={(e) => setMsgInput(e.target.value)}
+                  type="text"
+                />
+                <button
+                  type="submit"
+                  className="send-button"
+                  onClick={() => {
+                    setMsgInput("");
+                    sendMessage();
+                  }}
+                >
+                  send
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}

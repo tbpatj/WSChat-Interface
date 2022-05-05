@@ -71,7 +71,7 @@ a {
 
 /* The message input bar to send messages into the chat */
 .input-container{
-  width:30%;
+  width:100%;
   display: flex;
   justify-content: right;
   overflow: hidden;
@@ -79,6 +79,9 @@ a {
   border-style: solid;
   border-width: 1px;
   border-color: rgba(0,0,0,0.1);
+}
+form{
+  width: 30%;
 }
 .send-input{
   flex-grow: 2;

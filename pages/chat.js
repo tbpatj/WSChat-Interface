@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { useEffect } from "react";
 import ChatRoom from "../components/chat/ChatRoom";
+import DisplayRooms from "../components/chat/DisplayRooms";
 import {
   createRoom,
   getRooms,
@@ -23,28 +24,7 @@ export default function MainComponent() {
   return (
     <div>
       <HomeComponent />
-      <div className="rooms-container">
-        <h3>
-          Rooms{" "}
-          <span>
-            <button onClick={() => loadRooms()}>reload</button>
-          </span>
-        </h3>
-        {rooms.map((item, index) => {
-          return (
-            <div className="rooms-item" key={index + "12"}>
-              <span>{item.name}</span>
-              <button
-                onClick={() => joinRoom(item.id)(dispatch)}
-                className="create-button"
-              >
-                Join
-              </button>
-              <span>0/1 members</span>
-            </div>
-          );
-        })}
-      </div>
+      <DisplayRooms />
     </div>
   );
 }
