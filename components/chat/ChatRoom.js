@@ -25,6 +25,7 @@ export default function ChatRoom() {
       message: msgInput,
       date: new Date().toISOString(),
     });
+    setMsgInput("");
   };
 
   return (
@@ -44,6 +45,7 @@ export default function ChatRoom() {
       {/* if we do already have a username then display the send message fields */}
       {username && (
         <div className="room">
+          <h1>Messages</h1>
           <Messages />
           <div className="input-hold-right">
             <form onSubmit={(e) => e.preventDefault()}>
@@ -58,7 +60,6 @@ export default function ChatRoom() {
                   type="submit"
                   className="send-button"
                   onClick={() => {
-                    setMsgInput("");
                     sendMessage();
                   }}
                 >

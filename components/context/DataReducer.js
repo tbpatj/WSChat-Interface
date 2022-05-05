@@ -15,9 +15,11 @@ export default function dataReducer(state, action) {
       };
     }
     case JOIN_ROOM_SUCCESS: {
+      console.log(action.data);
       return {
         ...state,
-        room: action.data,
+        room: { name: action.data.name, id: action.data.id },
+        chatLog: action.data.chats,
       };
     }
     case SET_USERNAME:
@@ -37,8 +39,8 @@ export default function dataReducer(state, action) {
 
         for (let i = 0; i < state.chatLog.length; i++) {
           if (
-            state.chatLog[i].data.message === action.data.data.message &&
-            state.chatLog[i].data.date === action.data.data.date
+            state.chatLog[i].message === action.data.data.message &&
+            state.chatLog[i].date === action.data.data.date
           ) {
             return { ...state };
           }
@@ -52,8 +54,18 @@ export default function dataReducer(state, action) {
         ) {
           return { ...state };
         } */
-
-        let newState = { ...state, chatLog: [...state.chatLog, action.data] };
+        console.log("data ", action.data);
+        let newState = {
+          ...state,
+          chatLog: [
+            ...state.chatLog,
+            {
+              message: action.data.data.message,
+              date: action.data.data.date,
+              username: action.data.data.username,
+            },
+          ],
+        };
         return newState;
       } else {
         console.log("something went wrong");
