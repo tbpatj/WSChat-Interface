@@ -19,6 +19,7 @@ export default function dataReducer(state, action) {
       return {
         ...state,
         room: null,
+        chatLog: [],
       };
     }
     case JOIN_ROOM_SUCCESS: {

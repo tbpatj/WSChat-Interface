@@ -5,7 +5,7 @@ import DisplayRooms from "./DisplayRooms";
 
 export function RoomsMenu() {
   const [roomName, setRoomName] = useState("");
-  const { dispatch, room } = useDataContext();
+  const { dispatch } = useDataContext();
   function setTheRoom(e) {
     if (roomName.length < 30) {
       setRoomName(e.target.value);
@@ -18,23 +18,26 @@ export function RoomsMenu() {
         <span>
           <h2 className="lil-mg">Create new room</h2>
         </span>
-        <div className="create-inputs-container">
-          <input
-            className="create-input"
-            type="text"
-            placeholder="Room name"
-            value={roomName}
-            onChange={(e) => setTheRoom(e)}
-          />
-          <button
-            className="create-button"
-            onClick={() => {
-              createRoom(roomName)(dispatch);
-            }}
-          >
-            Create
-          </button>
-        </div>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="create-inputs-container">
+            <input
+              className="create-input"
+              type="text"
+              placeholder="Room name"
+              value={roomName}
+              onChange={(e) => setTheRoom(e)}
+            />
+            <button
+              type="submit"
+              className="create-button"
+              onClick={() => {
+                createRoom(roomName)(dispatch);
+              }}
+            >
+              Create
+            </button>
+          </div>
+        </form>
         <span>Join existing room</span>
         <DisplayRooms />
       </div>

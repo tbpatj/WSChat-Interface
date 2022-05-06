@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { joinRoom } from "../context/Actions/Rooms/Actions";
+import { useDataContext } from "../context/GlobalData";
 
 export default function RoomCode() {
   const [roomId, setRoomId] = useState("");
+  const { dispatch } = useDataContext();
   return (
     <div className="create-inputs-container">
       <input
