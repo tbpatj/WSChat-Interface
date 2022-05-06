@@ -11,6 +11,11 @@ export function RoomsMenu() {
       setRoomName(e.target.value);
     }
   }
+  function validateNewRoom() {
+    if (roomName !== "") {
+      createRoom(roomName)(dispatch);
+    }
+  }
 
   return (
     <div className="create">
@@ -31,7 +36,7 @@ export function RoomsMenu() {
               type="submit"
               className="create-button"
               onClick={() => {
-                createRoom(roomName)(dispatch);
+                validateNewRoom();
               }}
             >
               Create

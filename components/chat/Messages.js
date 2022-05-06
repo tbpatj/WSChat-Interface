@@ -7,7 +7,7 @@ export default function Messages() {
   useEffect(
     () => {
       if (lastMessage.current !== null) {
-        lastMessage.current.scrollIntoView(false);
+        lastMessage.current.scrollIntoView({ behavior: "smooth" });
       }
     },
     [chatLog],

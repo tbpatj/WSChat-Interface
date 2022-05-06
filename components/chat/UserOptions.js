@@ -26,7 +26,7 @@ export default function ChatUserOptions() {
               onChange={(e) => setUsernameInput(e.target.value)}
             />
             <button className="create-button" type="submit" onClick={enterRoom}>
-              Enter Room
+              Set
             </button>
           </div>
         </form>

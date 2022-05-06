@@ -15,12 +15,14 @@ export default function ChatRoom() {
   const ws = useContext(WebSocketContext);
 
   const sendMessage = () => {
-    ws.sendMessage(room.id, {
-      username: username,
-      message: msgInput,
-      date: new Date().toISOString(),
-    });
-    setMsgInput("");
+    if (msgInput !== "") {
+      ws.sendMessage(room.id, {
+        username: username,
+        message: msgInput,
+        date: new Date().toISOString(),
+      });
+      setMsgInput("");
+    }
   };
 
   return (

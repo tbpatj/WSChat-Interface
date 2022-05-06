@@ -5,6 +5,13 @@ import { useDataContext } from "../context/GlobalData";
 export default function RoomCode() {
   const [roomId, setRoomId] = useState("");
   const { dispatch } = useDataContext();
+
+  function validateRoomCode() {
+    if (roomId !== "") {
+      joinRoom(roomId)(dispatch);
+    }
+  }
+
   return (
     <div className="create-inputs-container">
       <input
@@ -14,10 +21,7 @@ export default function RoomCode() {
         value={roomId}
         onChange={(e) => setRoomId(e.target.value)}
       />
-      <button
-        className="create-button"
-        onClick={() => joinRoom(roomId)(dispatch)}
-      >
+      <button className="create-button" onClick={() => validateRoomCode()}>
         Join
       </button>
     </div>
