@@ -1,13 +1,14 @@
 import { io } from "socket.io-client";
 import { createContext, useReducer, useContext } from "react";
-import { updateChatLog } from "../ChatActions";
 import { useDataContext } from "../GlobalData";
+import { updateChatLog } from "../Actions/ChatLogActions";
 const WS_BASE = process.env.NEXT_PUBLIC_WS_BASE;
 
 const WebSocketContext = createContext(null);
 
 export { WebSocketContext };
 
+//create a websocket provider, this surrounds the app
 export const WebSocketProvider = ({ children }) => {
   let socket;
   let ws;
@@ -16,8 +17,11 @@ export const WebSocketProvider = ({ children }) => {
 
   const sendMessage = (roomId, message) => {
     console.log(`sending ${JSON.stringify(message)} to ${roomId}`);
+    //format data to send to backend
     const payload = { roomId: roomId, data: message };
+    //send data to backend
     socket.emit("event://send-message", JSON.stringify(payload));
+    //update the front end context "db"
     dispatch(updateChatLog(payload));
   };
 

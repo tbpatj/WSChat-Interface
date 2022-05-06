@@ -23,12 +23,13 @@ export const DataProvider = ({ children }) => {
     dispatch: dispatch,
   };
 
-  //return the context with our data and reducer
+  //return the context with our data and reducer while passing down the children
   return (
     <DataContext.Provider value={provider}>{children}</DataContext.Provider>
   );
 };
 
+//this just makes it easier to access the context without having to import useContext in another file
 export function useDataContext() {
   return useContext(DataContext);
 }

@@ -1,4 +1,4 @@
-import { getRooms, joinRoom } from "../context/ChatActions";
+import { getRooms, joinRoom } from "../context/Actions/Rooms/Actions";
 import { useDataContext } from "../context/GlobalData";
 
 export default function DisplayRooms() {
