@@ -10,11 +10,14 @@ export default function MainComponent() {
   //a variable to check if we can enter the actual chatroom, we need a username and a room we want to join
   let openChatRoom = room !== null && username !== null;
   return (
-    <div>
-      {!room && <RoomsMenu />}
-      {openChatRoom && <ChatRoom />}
-      {!username && <ChatUserOptions />}
-      <DisplayRooms />
+    <div className="flex-row flex-center">
+      <div className="sml-flex">
+        <div className="chat-container">
+          {!room && <RoomsMenu />}
+          {openChatRoom && <ChatRoom />}
+          {!username && <ChatUserOptions />}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import { useState, useContext } from "react";
+import { nullRoom } from "../context/Actions/Rooms/Dispatches";
+import { NULL_ROOM } from "../context/Actions/Rooms/Types";
 import { setUsername } from "../context/Actions/UsernameActions";
 import { useDataContext } from "../context/GlobalData";
 import { WebSocketContext } from "../context/Websocket/WebSocket";
@@ -23,9 +25,19 @@ export default function ChatRoom() {
 
   return (
     <div className="room">
-      <h1>Messages</h1>
+      <div className="flex-row">
+        <h1>Messages</h1>
+      </div>
       <Messages />
       <div className="input-hold-right">
+        <div className="flex-center">
+          <button
+            className="create-button"
+            onClick={() => dispatch(nullRoom())}
+          >
+            back
+          </button>
+        </div>
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="input-container">
             <input

@@ -1,5 +1,6 @@
 import { getRooms, joinRoom } from "../context/Actions/Rooms/Actions";
 import { useDataContext } from "../context/GlobalData";
+import RoomCode from "./RoomCode";
 
 export default function DisplayRooms() {
   const { dispatch, rooms } = useDataContext();
@@ -11,12 +12,13 @@ export default function DisplayRooms() {
 
   return (
     <div className="rooms-container">
-      <h3>
-        Rooms{" "}
-        <span>
-          <button onClick={() => loadRooms()}>reload</button>
-        </span>
-      </h3>
+      <div className="flex-row">
+        <h3>Rooms </h3>
+        <button className="reload-button" onClick={() => loadRooms()}>
+          <span className="center">⟳</span>
+        </button>
+      </div>
+
       {rooms.map((item, index) => {
         return (
           <div className="rooms-item" key={index + "12"}>
@@ -27,10 +29,11 @@ export default function DisplayRooms() {
             >
               Join
             </button>
-            <span>0/1 members</span>
           </div>
         );
       })}
+      <h6 className="lil-mg">Join via room code</h6>
+      <RoomCode />
     </div>
   );
 }

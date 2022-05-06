@@ -9,3 +9,5 @@ export const GET_ROOMS_ERROR = "GET_ROOMS_ERROR";
 export const JOIN_ROOM_REQUEST = "JOIN_ROOM_REQUEST";
 export const JOIN_ROOM_SUCCESS = "JOIN_ROOM_SUCCESS";
 export const JOIN_ROOM_ERROR = "JOIN_ROOM_ERROR";
+
+export const NULL_ROOM = "NULL_ROOM";

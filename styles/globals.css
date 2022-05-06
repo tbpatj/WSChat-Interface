@@ -17,25 +17,82 @@ a {
 
 /* multi-use */
 .lil-mg{
-  margin: 4px;
+  margin: 7px;
+  text-align: center;
+}
+.grow {
+  flex-grow: 2;
+  width: 60px;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-row{
+  display: flex;
+  align-items: center;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sml-flex{
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
 }
 
+.chat-container{
+  padding: 10px;
+  box-shadow: 2px 2px 10px -2px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  width: 100%;
+  max-height: 500px;
+  min-height: 400px;
+  overflow: scroll;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 /* messages container */
 
 
 .history{
   max-height: 300px;
+  min-height:250px;
   overflow:scroll;
   margin: 0px 5px;
   border-radius: 10px;
   box-shadow: inset 0px 2px 9px -2px rgba(0,0,0,0.3);
+}
+.reload-button{
+  font-family: Lucida Sans Unicode;
+  font-size: 30px;
+  border-radius: 50%;
+  color:black;
+  border-style:none;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  padding-right: 0.12em;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+}
+.reload-button:hover{
+  background-color: rgb(156, 156, 156);
+  color:white;
 }
 .messages-container{
   display:flex;
   justify-content: space-between;
 }
 .message, .my-message{
-  margin: 5px;
+  margin: 4px;
   width:fit-content;
   box-shadow: 2px 2px 6px -2px rgba(0,0,0,0.3);
   border-radius: 20px;
@@ -47,10 +104,9 @@ a {
 }
 
 .room{
-  padding: 0px;
-  margin: 10px 5%;
-  width: 90%;
-  box-shadow: 2px 2px 10px -2px rgba(0,0,0,0.4);
+  padding: 7px;
+  margin: 10px;
+  width: 98%;
   border-radius: 10px;
   min-height: 100px;
   max-height: 500px;
@@ -77,6 +133,7 @@ a {
 /* The message input bar to send messages into the chat */
 .input-container{
   width:100%;
+  max-width: 300px;
   display: flex;
   justify-content: right;
   overflow: hidden;
@@ -88,9 +145,12 @@ a {
   margin: 10px 0px;
 }
 form{
-  width: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 .send-input{
+  width: 100%;
   flex-grow: 2;
   background-color:white;
   border-style:none;
@@ -114,25 +174,24 @@ form{
 .create{
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   width: 100%;
 }
 .new-room-container{
-  padding: 10px;
-  box-shadow: 2px 2px 10px -2px rgba(0,0,0,0.4);
-  border-radius: 10px;
-  width: 70%;
+  max-width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .create-input{
+
   transition: 0.1s;
   border-style: solid;
   border-radius: 5px;
   border-width: 1px;
   padding: 10px;
+  width: 65%;
   border-color: rgba(0,0,0,0.1);
 }
 .create-input:focus{
@@ -156,6 +215,7 @@ form{
 .create-inputs-container{
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 10px;
 }
@@ -163,16 +223,46 @@ form{
 .rooms-container{
   background-color: #fbfbfb;
   width: fit-content;
+  max-width: 90%;
   border-radius: 10px;
-  box-shadow: 2px 2px 10px -3px rgba(0,0,0,0.3);
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: inset 2px 2px 10px -3px rgba(0,0,0,0.3);
   margin: 10px;
 }
 .rooms-item{
   padding: 10px;
+  /* box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.3); */
+  margin: 1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 100%;
+  text-align: left;
+  height:fit-content;
+  justify-content: space-between;
+  border-radius: 10px;
+  
+  display: flex;
+  flex-wrap: wrap;
 }
 .rooms-item > span{
   margin: 0 10px;
 }
 h3{
   margin: 5px 5px;
+}
+
+/* userOptions */
+
+.user{
+  margin: 10px;
+  width: 95%;
+  padding: 10px;
+  box-shadow: 2px 2px 10px -1px rgba(0,0,0,0.3);
 }

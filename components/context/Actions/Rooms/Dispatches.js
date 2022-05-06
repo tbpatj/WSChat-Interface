@@ -7,6 +7,7 @@ import {
   JOIN_ROOM_ERROR,
   JOIN_ROOM_REQUEST,
   JOIN_ROOM_SUCCESS,
+  NULL_ROOM,
 } from "./Types";
 
 //Here we will define our actions,
@@ -63,5 +64,11 @@ export function joinRoomError(error) {
   return {
     type: JOIN_ROOM_ERROR,
     data: error,
+  };
+}
+
+export function nullRoom() {
+  return {
+    type: NULL_ROOM,
   };
 }

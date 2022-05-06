@@ -3,6 +3,7 @@ import {
   CREATE_ROOM_SUCCESS,
   GET_ROOMS_SUCCESS,
   JOIN_ROOM_SUCCESS,
+  NULL_ROOM,
 } from "./Actions/Rooms/Types";
 import { SET_USERNAME } from "./Actions/UsernameActions";
 
@@ -12,6 +13,12 @@ export default function dataReducer(state, action) {
       return {
         ...state,
         room: action.data,
+      };
+    }
+    case NULL_ROOM: {
+      return {
+        ...state,
+        room: null,
       };
     }
     case JOIN_ROOM_SUCCESS: {

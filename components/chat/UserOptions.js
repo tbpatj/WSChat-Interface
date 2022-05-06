@@ -11,18 +11,26 @@ export default function ChatUserOptions() {
     dispatch(setUsername(usernameInput));
   }
   return (
-    <div className="user">
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input
-          type="text"
-          placeholder="Enter Username"
-          value={usernameInput}
-          onChange={(e) => setUsernameInput(e.target.value)}
-        />
-        <button type="submit" onClick={enterRoom}>
-          Enter Room
-        </button>
-      </form>
+    <div className="create">
+      <div className="new-room-container">
+        <span>
+          <h2 className="lil-mg">Create your Username</h2>
+        </span>
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="create-inputs-container">
+            <input
+              className="create-input"
+              type="text"
+              placeholder="Username"
+              value={usernameInput}
+              onChange={(e) => setUsernameInput(e.target.value)}
+            />
+            <button className="create-button" type="submit" onClick={enterRoom}>
+              Enter Room
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { createRoom, joinRoom } from "../context/Actions/Rooms/Actions";
 import { useDataContext } from "../context/GlobalData";
+import DisplayRooms from "./DisplayRooms";
 
 export function RoomsMenu() {
   const [roomName, setRoomName] = useState("");
-  const [roomId, setRoomId] = useState("");
   const { dispatch, room } = useDataContext();
+  function setTheRoom(e) {
+    if (roomName.length < 30) {
+      setRoomName(e.target.value);
+    }
+  }
 
   return (
     <div className="create">
@@ -19,7 +24,7 @@ export function RoomsMenu() {
             type="text"
             placeholder="Room name"
             value={roomName}
-            onChange={(e) => setRoomName(e.target.value)}
+            onChange={(e) => setTheRoom(e)}
           />
           <button
             className="create-button"
@@ -31,21 +36,7 @@ export function RoomsMenu() {
           </button>
         </div>
         <span>Join existing room</span>
-        <div className="create-inputs-container">
-          <input
-            className="create-input"
-            type="text"
-            placeholder="Room code"
-            value={roomId}
-            onChange={(e) => setRoomId(e.target.value)}
-          />
-          <button
-            className="create-button"
-            onClick={() => joinRoom(roomId)(dispatch)}
-          >
-            Join
-          </button>
-        </div>
+        <DisplayRooms />
       </div>
     </div>
   );
